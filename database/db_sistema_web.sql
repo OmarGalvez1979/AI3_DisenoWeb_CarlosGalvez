@@ -1,6 +1,9 @@
 -- =============================================================
 --  Proyecto : AI3_DisenoWeb_CarlosGalvez
 --  Asignatura: Programación de Sistemas Web - Universidad ECOTEC
+--  Autor    : Carlos Omar Galvez
+--  Motor    : MySQL 8 / MariaDB 10.x (XAMPP)
+--  Script DDL de creación de la base de datos db_sistema_web
 -- =============================================================
 
 DROP DATABASE IF EXISTS db_sistema_web;

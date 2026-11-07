@@ -1,16 +1,11 @@
-/**
- * validacion.js — Validación del formulario en el CLIENTE.
- * Mejora la experiencia de usuario; la validación definitiva
- * siempre se repite en el servidor (Estudiante::validar).
- * @author Carlos Omar Galvez
- */
+
 (function () {
     'use strict';
 
     const form = document.getElementById('form-registro');
     if (!form) return;
 
-    /** Algoritmo módulo 10 de la cédula ecuatoriana. */
+    /** Algoritmo módulo 10 de la cédula */
     function cedulaValida(c) {
         if (!/^\d{10}$/.test(c)) return false;
         const prov = parseInt(c.substring(0, 2), 10);
@@ -34,7 +29,7 @@
     }
 
     const reglas = {
-        cedula: v => cedulaValida(v) || 'Ingrese una cédula ecuatoriana válida de 10 dígitos.',
+        cedula: v => cedulaValida(v) || 'Ingrese una cédula  válida de 10 dígitos.',
         nombres: v => /^[\p{L}][\p{L} '\-]{1,79}$/u.test(v) || 'Los nombres deben tener entre 2 y 80 letras.',
         apellidos: v => /^[\p{L}][\p{L} '\-]{1,79}$/u.test(v) || 'Los apellidos deben tener entre 2 y 80 letras.',
         correo: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) || 'Ingrese un correo electrónico válido.',

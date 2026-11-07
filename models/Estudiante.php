@@ -1,5 +1,6 @@
 <?php
 
+
 declare(strict_types=1);
 
 require_once __DIR__ . '/../config/conexion.php';
@@ -153,4 +154,33 @@ final class Estudiante
         return (int) $this->db->lastInsertId();
     }
 
+    /* =========================================================
+     *  READ
+     * ========================================================= */
+
+    /** Lista estudiantes; el filtro de búsqueda también usa parámetros enlazados. */
+    public function listar(string $busqueda = ''): array
+    {
+        $sql = 'SELECT id_estudiante, cedula, nombres, apellidos, correo, telefono,
+                       fecha_nacimiento, carrera, semestre, estado, fecha_creacion
+                  FROM estudiantes';
+        $params = [];
+
+        if ($busqueda !== '') {
+            $sql .= ' WHERE cedula LIKE :b1 OR nombres LIKE :b2 OR apellidos LIKE :b3
+                         OR correo LIKE :b4 OR carrera LIKE :b5';
+            $like = '%' . addcslashes($busqueda, '%_\\') . '%';
+            $params = [':b1' => $like, ':b2' => $like, ':b3' => $like, ':b4' => $like, ':b5' => $like];
+        }
+        $sql .= ' ORDER BY fecha_creacion DESC, id_estudiante DESC';
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute($params);
+        return $stmt->fetchAll();
+    }
+
+    public function contar(): int
+    {
+        return (int) $this->db->query('SELECT COUNT(*) FROM estudiantes')->fetchColumn();
+    }
 }
