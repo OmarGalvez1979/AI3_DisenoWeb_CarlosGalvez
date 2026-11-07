@@ -1,0 +1,111 @@
+/* =========================================================
+   Sistema de Registro Estudiantil — Carlos Omar Galvez
+   HTML5 / CSS3 responsivo (mobile-first)
+   ========================================================= */
+:root {
+    --primario: #0b4f8a;
+    --primario-oscuro: #083a66;
+    --acento: #f2a900;
+    --fondo: #f3f6fa;
+    --superficie: #ffffff;
+    --texto: #1d2733;
+    --texto-suave: #5b6878;
+    --borde: #d7dee8;
+    --error: #c62828;
+    --exito: #2e7d32;
+    --radio: 10px;
+    --sombra: 0 4px 18px rgba(16, 42, 75, .08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 16px; }
+main.contenedor { flex: 1; padding-top: 28px; padding-bottom: 28px; }
+
+/* ---------- Barra superior ---------- */
+.barra { background: var(--primario); color: #fff; box-shadow: var(--sombra); }
+.barra__interior { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; flex-wrap: wrap; }
+.marca { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 600; }
+.marca__logo { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px; background: var(--acento); color: var(--primario-oscuro); font-weight: 800; }
+.menu { display: flex; gap: 6px; }
+.menu a { color: #dce8f5; text-decoration: none; padding: 8px 14px; border-radius: 8px; font-weight: 500; }
+.menu a:hover { background: rgba(255,255,255,.12); color: #fff; }
+.menu a.activo { background: #fff; color: var(--primario); }
+
+/* ---------- Tarjeta ---------- */
+.tarjeta { background: var(--superficie); border-radius: var(--radio); box-shadow: var(--sombra); padding: 24px; }
+h1 { margin: 0 0 4px; font-size: 1.55rem; color: var(--primario-oscuro); }
+.subtitulo { margin: 0 0 20px; color: var(--texto-suave); }
+.req { color: var(--error); }
+
+/* ---------- Formulario ---------- */
+.rejilla { display: grid; grid-template-columns: 1fr; gap: 6px 22px; }
+@media (min-width: 720px) { .rejilla { grid-template-columns: 1fr 1fr; } }
+
+.campo { display: flex; flex-direction: column; }
+.campo label { font-weight: 600; font-size: .92rem; margin-bottom: 6px; }
+.campo input, .campo select {
+    font: inherit; padding: 10px 12px; border: 1px solid var(--borde); border-radius: 8px;
+    background: #fbfcfe; color: var(--texto); transition: border-color .15s, box-shadow .15s;
+}
+.campo input:focus, .campo select:focus { outline: none; border-color: var(--primario); box-shadow: 0 0 0 3px rgba(11,79,138,.15); }
+.campo input[aria-invalid="true"], .campo select[aria-invalid="true"] { border-color: var(--error); background: #fff6f6; }
+.campo input.valido, .campo select.valido { border-color: var(--exito); }
+.error { color: var(--error); min-height: 1.3em; font-size: .82rem; margin-top: 3px; }
+
+.acciones { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+.boton {
+    font: inherit; font-weight: 600; cursor: pointer; border: 0; border-radius: 8px;
+    padding: 10px 20px; background: var(--primario); color: #fff; transition: background .15s;
+}
+.boton:hover { background: var(--primario-oscuro); }
+.boton--secundario { background: #e6ecf3; color: var(--texto); }
+.boton--secundario:hover { background: #d5dee9; }
+
+/* ---------- Alertas ---------- */
+.alerta { padding: 12px 16px; border-radius: 8px; margin-bottom: 18px; border-left: 5px solid; }
+.alerta--error { background: #fdecea; border-color: var(--error); color: #8e1c1c; }
+.alerta--exito { background: #e8f5e9; border-color: var(--exito); color: #1b5e20; }
+
+/* ---------- Listado ---------- */
+.cabecera-listado { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.buscador { display: flex; gap: 8px; flex: 1 1 320px; max-width: 460px; }
+.buscador input { flex: 1; font: inherit; padding: 10px 12px; border: 1px solid var(--borde); border-radius: 8px; min-width: 0; }
+.oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.vacio { color: var(--texto-suave); }
+
+.tabla-responsiva { width: 100%; overflow-x: auto; border: 1px solid var(--borde); border-radius: 8px; }
+.tabla { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.tabla th, .tabla td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--borde); white-space: nowrap; }
+.tabla thead th { background: var(--primario); color: #fff; font-weight: 600; position: sticky; top: 0; }
+.tabla tbody tr:nth-child(even) { background: #f7f9fc; }
+.tabla tbody tr:hover { background: #eef4fb; }
+.tabla tbody tr.resaltado { background: #fff8e1; box-shadow: inset 4px 0 0 var(--acento); }
+
+.estado { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: .75rem; font-weight: 700; }
+.estado--activo { background: #e8f5e9; color: var(--exito); }
+.estado--inactivo { background: #eceff1; color: #546e7a; }
+
+/* Tabla tipo "tarjetas" en pantallas pequeñas */
+@media (max-width: 760px) {
+    .tabla-responsiva { border: 0; }
+    .tabla thead { display: none; }
+    .tabla, .tabla tbody, .tabla tr, .tabla td { display: block; width: 100%; }
+    .tabla tr { border: 1px solid var(--borde); border-radius: 8px; margin-bottom: 12px; padding: 6px 0; background: #fff; }
+    .tabla td { border: 0; padding: 6px 14px; white-space: normal; display: flex; justify-content: space-between; gap: 12px; }
+    .tabla td::before { content: attr(data-label); font-weight: 600; color: var(--texto-suave); }
+}
+
+/* ---------- Pie ---------- */
+.pie { background: #e6ecf3; color: var(--texto-suave); font-size: .85rem; padding: 16px 0; text-align: center; }

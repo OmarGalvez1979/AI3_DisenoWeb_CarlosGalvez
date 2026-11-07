@@ -1,3 +1,8 @@
+-- =============================================================
+--  Proyecto : AI3_DisenoWeb_CarlosGalvez
+--  Asignatura: Programación de Sistemas Web - Universidad ECOTEC
+-- =============================================================
+
 DROP DATABASE IF EXISTS db_sistema_web;
 
 CREATE DATABASE db_sistema_web
@@ -8,6 +13,9 @@ USE db_sistema_web;
 
 -- -------------------------------------------------------------
 --  Tabla principal: estudiantes
+--  Registro de estudiantes de la universidad.
+--  Cumple 3FN: cada atributo depende solo de la clave primaria;
+--  cédula y correo son claves candidatas (UNIQUE).
 -- -------------------------------------------------------------
 CREATE TABLE estudiantes (
     id_estudiante        INT UNSIGNED      NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria autoincremental',
