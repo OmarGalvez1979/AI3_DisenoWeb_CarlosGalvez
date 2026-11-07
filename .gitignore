@@ -1,0 +1,33 @@
+# --- Entorno y credenciales locales ---
+.env
+.env.*
+config/config.local.php
+
+# --- Logs ---
+logs/*.log
+*.log
+
+# --- Dependencias PHP (Composer) ---
+/vendor/
+composer.phar
+
+# --- Caché / temporales ---
+/tmp/
+/cache/
+*.tmp
+*.bak
+*.swp
+
+# --- Volcados de base de datos con datos reales ---
+*.sql.gz
+dump_*.sql
+
+# --- IDE / editores ---
+.vscode/
+.idea/
+*.code-workspace
+
+# --- Sistema operativo ---
+.DS_Store
+Thumbs.db
+desktop.ini
