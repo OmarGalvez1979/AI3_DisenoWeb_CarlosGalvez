@@ -1,11 +1,3 @@
--- =============================================================
---  Proyecto : AI3_DisenoWeb_CarlosGalvez
---  Asignatura: Programación de Sistemas Web - Universidad ECOTEC
---  Autor    : Carlos Omar Galvez
---  Motor    : MySQL 8 / MariaDB 10.x (XAMPP)
---  Script DDL de creación de la base de datos db_sistema_web
--- =============================================================
-
 DROP DATABASE IF EXISTS db_sistema_web;
 
 CREATE DATABASE db_sistema_web
@@ -16,9 +8,6 @@ USE db_sistema_web;
 
 -- -------------------------------------------------------------
 --  Tabla principal: estudiantes
---  Registro de estudiantes de la universidad.
---  Cumple 3FN: cada atributo depende solo de la clave primaria;
---  cédula y correo son claves candidatas (UNIQUE).
 -- -------------------------------------------------------------
 CREATE TABLE estudiantes (
     id_estudiante        INT UNSIGNED      NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria autoincremental',
