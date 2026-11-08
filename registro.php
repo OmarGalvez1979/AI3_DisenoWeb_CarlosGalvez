@@ -1,4 +1,11 @@
 <?php
+/**
+ * registro.php  (Controlador + Vista)  — CREATE
+ * Formulario HTML5 con validación en cliente (atributos HTML5 + JS)
+ * y en servidor (Estudiante::validar). La inserción usa sentencias preparadas.
+ *
+ * @author Carlos Omar Galvez
+ */
 
 declare(strict_types=1);
 

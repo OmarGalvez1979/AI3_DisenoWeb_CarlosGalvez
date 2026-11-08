@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Estudiante.php  (Modelo)
+ * Encapsula el acceso a la tabla `estudiantes` usando PDO y
+ * SENTENCIAS PREPARADAS en todas las consultas con datos externos.
+ *
+ * @author Carlos Omar Galvez
+ */
 
 declare(strict_types=1);
 

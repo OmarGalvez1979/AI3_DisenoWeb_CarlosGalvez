@@ -1,4 +1,12 @@
 <?php
+/**
+ * seguridad.php
+ * Funciones transversales de seguridad: sesión, cabeceras HTTP,
+ * saneamiento de salida (XSS) y token anti-CSRF.
+ *
+ * @author Carlos Omar Galvez
+ */
+
 declare(strict_types=1);
 
 // Sesión con cookies endurecidas

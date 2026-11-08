@@ -1,4 +1,16 @@
 <?php
+/**
+ * conexion.php
+ * Módulo de conexión y configuración a la base de datos mediante PDO.
+ *
+ * - Credenciales separadas del resto del código.
+ * - Si existe config/config.local.php (ignorado por Git) se usan sus valores;
+ *   en caso contrario, los valores por defecto de XAMPP.
+ * - Errores capturados con try-catch: se registran en logs/ y al usuario
+ *   solo se le muestra un mensaje genérico (nunca credenciales).
+ *
+ * @author Carlos Omar Galvez
+ */
 
 declare(strict_types=1);
 

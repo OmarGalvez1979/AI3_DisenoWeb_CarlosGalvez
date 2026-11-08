@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * listado.php  (Controlador + Vista)  — READ
+ * Consulta los registros con PDO y los presenta en una tabla responsiva.
+ * TODA salida dinámica pasa por e() = htmlspecialchars() para prevenir XSS.
+ *
+ * @author Carlos Omar Galvez
+ */
 
 declare(strict_types=1);
 
